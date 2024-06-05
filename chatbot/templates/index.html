@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        /* Style for chat container */
+        .chat-container {
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow-y: scroll;
+            height: 400px;
+        }
+
+        /* Style for chat messages */
+        .message {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style for input field */
+        #user_input {
+            width: calc(100% - 120px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px 0 0 8px;
+        }
+
+        /* Style for predict button */
+        #predict-btn {
+            width: 100px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        {% for message in chat_history %}
+            <div class="message">{{ message }}</div>
+        {% endfor %}
+    </div>
+    <form method="POST">
+        <input type="text" id="user_input" name="user_input" placeholder="Enter your message..." required>
+        <button type="submit" id="predict-btn">Send</button>
+    </form>
+    <button id="close-btn" onclick="hideChat()">X</button>
+
+    <script>
+       
+    </script>
+</body>
+</html>
