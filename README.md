@@ -76,49 +76,42 @@ menunjukkan bahwa model tidak terlalu kompleks.
 
 
 1.Data Collection (Pengumpulan Data)<br />
-Dari data sendiri Kami menemukan data kami di Kaggle.
-Link Kaggle (Mental Health Conversational Data & Mental Health FAQ for Chatbot):<br />
-https://www.kaggle.com/datasets/narendrageek/mental-health-faq-for-chatbot<br />
-https://www.kaggle.com/datasets/elvis23/mental-health-conversational-data
+Pertama, kita mengumpulkan data dari berbagai sumber seperti survei,
+database, atau sensor. Data ini akan menjadi dasar untuk seluruh proses
+berikutnya.
+
 
 2. Building Model (Membangun Model)<br />
-Model AI yang kami kembangkan untuk chatbot ruang damai dalam
-kesehatan mental menggunakan arsitektur LSTM (Long Short-Term Memory).
-LSTM dipilih karena kemampuannya untuk mengelola dan memahami pola
-dalam data berurutan seperti teks percakapan, yang sangat relevan dalam
-konteks interaksi pengguna dengan chatbot terkait kesehatan mental.
+Setelah data terkumpul, kita membuat model awal dengan memilih
+algoritma yang sesuai dan menyusun kerangka dasar model.
 
 3. Data Cleaning and Augmentation (Pembersihan dan Augmentasi
 Data)<br />
-Dari data disini telah dilakukan pembersihan di awal sehingga selanjutnya
-ke tahap load data
+Data yang telah dikumpulkan biasanya masih kotor atau tidak lengkap,
+jadi kita perlu membersihkannya.
 
-5. Data Splitting (Pemecahan Data)<br />
-langkah pertama adalah memisahkan data menjadi data
-latih dan data uji menggunakan fungsi train_test_split dengan proporsi 80% untuk
-pelatihan dan 20% untuk pengujian
+4. Data Splitting (Pemecahan Data)<br />
+Setelah data bersih, kita membaginya menjadi dua bagian: satu untuk
+melatih model (training set) dan satu lagi untuk menguji model (testing
+set). Ini penting untuk memastikan model kita bekerja dengan baik.
 
-6. Pre-Proccesing Data (Pra-Pemrosesan Data)<br />
-Pada preprocessing data tersebut, pertama-tama data dari kolom 'intents' diambil
-dan dipisahkan menjadi dua list, yaitu 'X' untuk pola (patterns) dan 'y' untuk respons
-(responses). 
+5. Pre-Proccesing Data (Pra-Pemrosesan Data)<br />
+Data yang sudah dibagi kemudian diproses lagi agar siap digunakan oleh
+model. Ini termasuk langkah-langkah seperti normalisasi dan pengkodean
+data.
 
-7. Model Training (Pelatihan Model)<br />
-Pada tahap ini, pertama-tama diatur hyperparameters EPOCHS = 50 dan
-BATCH_SIZE = 32 untuk menentukan jumlah epoch dan ukuran batch selama pelatihan
-model. Model dilatih menggunakan model.fit(X, y_encoded, epochs=EPOCHS,
-batch_size=BATCH_SIZE, validation_data=(X, y_encoded)), di mana data X dan label
-y_encoded digunakan untuk pelatihan dan validasi. Setelah pelatihan selesai, model
-disimpan dalam format HDF5 dengan nama my_model_NLP.h5 menggunakan
-model.save('my_model_NLP.h5'). S
+6. Model Training (Pelatihan Model)<br />
+Pada tahap ini, kita melatih model menggunakan data pelatihan. Model
+belajar mengenali pola dalam data untuk membuat prediksi atau
+klasifikasi
 
-8. Model Evaluation (Evaluasi Model)<br />
+7. Model Evaluation (Evaluasi Model)<br />
 Pada tahap ini dilakukan untuk mengevaluasi model yang telah dilatih
 sebelumnya agar mengetahui akurasi dan lossnya.
 
-9. Model Prediction (Prediksi Model)<br />
-MPada tahap ini, teks masukan diproses oleh model deep learning yang dimuat dari 'content/my_model_NLP.h5', menggunakan tokenizer untuk pra-pemrosesan, memprediksi niat dengan probabilitas tertinggi, memetakan indeks ke label niat dengan label_encoder, dan mengembalikan label niat untuk aplikasi seperti chatbot, asisten virtual, dan sistem rekomendasi.
-
+8. Model Prediction (Prediksi Model)<br />
+Model yang sudah dievaluasi dan disempurnakan kemudian digunakan
+untuk membuat prediksi pada data baru atau data nyata. 
 
 ## Integration
 integrasi AI dalam proyek chatbot untuk kesehatan mental melibatkan
