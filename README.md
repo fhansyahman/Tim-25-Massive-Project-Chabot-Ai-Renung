@@ -44,10 +44,10 @@ webinar, serta informasi bermanfaat melalui artikelartikel..
 
 ### 1. Dataset
 - Data Collection <br />
-Kami menemukan data kami di Kaggle.
+Kami menemukan data kami di Kaggle.<br />
 Link Kaggle (Mental Health Conversational Data & Mental Health FAQ for Chatbot):
 https://www.kaggle.com/datasets/narendrageek/mental-health-faq-for-chatbot <br />
-https://www.kaggle.com/datasets/elvis23/mental-health-conversational-data
+https://www.kaggle.com/datasets/elvis23/mental-health-conversational-data<br />
 ![alt text](readme-img/dataset.png)
 
 - Data Cleaning <br />
@@ -157,11 +157,11 @@ dalam lingkungan produksi.
 ![alt text](readme-img/test-api.png)
 ![alt text](readme-img/web.png)
 ○ Pengembangan Frontend: Membangun antarmuka pengguna
-(UI) untuk chatbot di web. 
+(UI) untuk chatbot di web. <br />
 ○ Integrasi Endpoint: Menghubungkan frontend dengan
-endpoint AI yang dihasilkan oleh Code Engine.
-○ Testing dan Iterasi: Menguji integrasi secara menyeluruh
-untuk memastikan bahwa chatbot berfungsi dengan baik di antarmuka
+endpoint AI yang dihasilkan oleh Code Engine.<br />
+○ Testing dan Iterasi: Menguji integrasi secara menyeluruh<br />
+untuk memastikan bahwa chatbot berfungsi dengan baik di antarmuka<br />
 
 ## Deployment
 ![alt text](readme-img/docker.png)
