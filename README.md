@@ -48,12 +48,14 @@ Kami menemukan data kami di Kaggle.
 Link Kaggle (Mental Health Conversational Data & Mental Health FAQ for Chatbot):
 https://www.kaggle.com/datasets/narendrageek/mental-health-faq-for-chatbot <br />
 https://www.kaggle.com/datasets/elvis23/mental-health-conversational-data
+![alt text](readme-img/dataset.png)
+
 - Data Cleaning <br />
 Kami menggunakan pandas untuk membersihkan data. Berikut tabel contoh data yang belum dibersihkan dan yang sudah: <br />
 Sebelum:
-
+![alt text](readme-img/sebelum-clean.png)
 Sesudah:
-
+![alt text](readme-img/sesudah-clean.png)
 Pada dataset sendiri disini dilakukan penerjemahan kemudian dua data yang berbada tersebut digabung menjadi satu data
 
 ### 2. Algorithm
@@ -64,9 +66,20 @@ kami memilih untuk menggunakan TensorFlow, Keras (yang terintegrasi dengan
 TensorFlow), dan Scikit-Learn sebagai framework utama untuk implementasi AI
 
 - Pembangunan Model <br />
+![alt text](readme-img/build-model.png)
+![alt text](readme-img/build-model1.png)
+
+Kemudian, sebuah model sekuensial Keras dibuat,
+dimulai dengan lapisan embedding yang mengubah kata-kata menjadi vektor-vektor
+dengan panjang 128. Lapisan LSTM dengan 128 unit digunakan untuk memproses
+urutan vektor ini, dan akhirnya sebuah lapisan dense dengan fungsi aktivasi softmax
+digunakan untuk klasifikasi ke dalam sejumlah kelas yang ditentukan oleh num_classes.
+Model ini dikompilasi menggunakan optimizer 'adam', loss function
+'sparse_categorical_crossentropy', dan metrik 'accuracy'.
 EPOCHS=50 dan BATCH_SIZE=32 diatur untuk pelatihan model, yang dilatih dengan model.fit(X, y_encoded, epochs=EPOCHS, batch_size=BATCH_SIZE, validation_data=(X, y_encoded)). Model disimpan sebagai 'my_model_NLP.h5', tokenizer disimpan dalam 'tokenizer.json', dan label encoder disimpan dalam 'label_encoder.json'. Output pelatihan: 8 batch, 106ms per langkah, training loss 0.5214, accuracy 0.8902, validation loss 0.4939, accuracy 0.9106.
 
 - Model Evaluation <br />
+![alt text](readme-img/evaluasi.png)
 Berdasarkan hasil evaluasi model, model menunjukkan performa yang cukup
 baik, dengan loss pelatihan sebesar 0.5214, akurasi pelatihan 0.8902, loss validasi
 0.4939, dan akurasi validasi 0.9106. Waktu pelatihan per langkah sekitar 106ms,
@@ -74,7 +87,7 @@ menunjukkan bahwa model tidak terlalu kompleks.
 
 ## Prototype
 
-
+![alt text](readme-img/prototype.png)
 1.Data Collection (Pengumpulan Data)<br />
 Pertama, kita mengumpulkan data dari berbagai sumber seperti survei,
 database, atau sensor. Data ini akan menjadi dasar untuk seluruh proses
@@ -128,16 +141,21 @@ ke GPU untuk pelatihan model yang lebih cepat.
 berikutnya adalah mengevaluasi kinerjanya menggunakan data uji.
 
 2. Deployment dengan Docker Hub dan Code Engine<br />
+![alt text](readme-img/docker.png)
+![alt text](readme-img/code-engine.png)
+
 ○ Dockerization: Setelah model siap, kita mengemasnya ke
-dalam sebuah container menggunakan Docker.
+dalam sebuah container menggunakan Docker.<br />
 ○ Push ke Docker Hub: Docker image yang sudah dibuat
 kemudian di-push ke Docker Hub, yang merupakan repository untuk
-menyimpan dan mendistribusikan Docker images.
+menyimpan dan mendistribusikan Docker images.<br />
 ○ Code Engine Deployment: Menggunakan IBM Cloud Code
 Engine atau platform serupa untuk mendeploy Docker container ke
 dalam lingkungan produksi. 
 
-3. Integrasi ke Tampilan Web:<br />
+4. Integrasi ke Tampilan Web:<br />
+![alt text](readme-img/test-api.png)
+![alt text](readme-img/web.png)
 ○ Pengembangan Frontend: Membangun antarmuka pengguna
 (UI) untuk chatbot di web. 
 ○ Integrasi Endpoint: Menghubungkan frontend dengan
@@ -146,6 +164,8 @@ endpoint AI yang dihasilkan oleh Code Engine.
 untuk memastikan bahwa chatbot berfungsi dengan baik di antarmuka
 
 ## Deployment
+![alt text](readme-img/docker.png)
+![alt text](readme-img/code-engine.png)
 Pada bagian ini, untuk platform yang digunakan untuk memberikan akses model
 AI melalui proses deployment, yang melibatkan Docker Hub dan Code Engine untuk
 menghasilkan endpoint API yang dapat diakses oleh aplikasi web.
@@ -181,18 +201,18 @@ diintegrasikan telah bisa digunakan sesuai harapan, meskipun masih perlu beberap
 perbaikan.
 
 4. Limitations and challenges faced<br />
-A. Kendala waktu : waktu yang diberikan cukup terbatas
+A. Kendala waktu : waktu yang diberikan cukup terbatas<br />
 B. Kendala sumber daya : Sumber Daya Manusia yang kurang anak IT dan
-keterbatasan penggunaan collab dan ibm cloud.
+keterbatasan penggunaan collab dan ibm cloud.<br />
 C. Kendala teknis : Kesulitan mencari dataset yang sesuai dan berbahasa indonesia
 serta beberapa tahapan tidak berjalan namun dapat di handle dengan yang lain.
 
 ## Conclusion
 1. Summary of important points
 A. Proyek ini bertujuan untuk membantu individu mengatasi gangguan
-kesehatan mental dan beberapa gejala terkait.
+kesehatan mental dan beberapa gejala terkait.<br />
 B. Dari berbagai model yang telah kami kembangkan, model ini dianggap lebih
-unggul karena memiliki tingkat akurasi dan presisi yang cukup tinggi.
+unggul karena memiliki tingkat akurasi dan presisi yang cukup tinggi.<br />
 C. Tantangan yang kami hadapi dalam proyek ini mencakup keterbatasan waktu,
 sumber daya yang terbatas, serta beberapa kendala teknis yang perlu diatasi.
 
@@ -206,8 +226,8 @@ lebih baik.
 
 3. Future project development plans<br />
 A. Kami berencana untuk menambahkan fitur-fitur baru ke proyek ini, seperti
-input voice dan output voice.
-B. Kami juga ingin proyek ini bisa digunakan di ponsel.
+input voice dan output voice.<br />
+B. Kami juga ingin proyek ini bisa digunakan di ponsel.<br />
 C. Selain itu, kami akan terus memperbarui data kami sesuai dengan
 perkembangan dunia nyata, untuk meningkatkan keakuratan dan efektivitas
 proyek ini.
